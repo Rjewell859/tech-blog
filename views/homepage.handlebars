@@ -5,11 +5,11 @@
     <div class='card'>
       <div class="card-header">
         <h3>{{blog.name}}</h3>
-      <span>Posted by {{blog.user.name}} on {{format_date blog.date_created}}</span>
+      <span>Posted by {{blog.user.user_name}} on {{format_date blog.date_created}}</span>
       </div>
       <div class="card-body">
         <p>
-          {{blog.description}}
+          {{blog.content}}
         </p>
       </div>
     </div>
