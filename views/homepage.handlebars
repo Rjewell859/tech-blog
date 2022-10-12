@@ -4,13 +4,16 @@
   <div class="col-md-5">
     <div class='card'>
       <div class="card-header">
-        <h3>{{blog.name}}</h3>
+        <h3><a href="/blog/{{blog.id}}">{{blog.name}}</a></h3>
       <span>Posted by {{blog.user.user_name}} on {{format_date blog.date_created}}</span>
       </div>
       <div class="card-body">
         <p>
           {{blog.content}}
         </p>
+            <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{comment.id}}">DELETE</button>
+      </div>
       </div>
     </div>
   </div>
