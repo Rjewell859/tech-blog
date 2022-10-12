@@ -1,27 +1,25 @@
 const newFormHandler = async (event) => {
-    event.preventDefault();
-  
+  event.preventDefault()
     const title = document.querySelector('#comment-title').value.trim();
     const content = document.querySelector('#comment-cont').value.trim();
   
     if (title  && content) {
-        event.preventDefault()
-      const response = await fetch(`/api/comments`, {
+      const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({ title,  content }),
+        body: JSON.stringify({ title,  content,}),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace(`/blog/${blog_id}`);
+        
       } else {
         alert('Failed to create comment');
       }
     }
   };
-  
+
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
@@ -45,4 +43,4 @@ const newFormHandler = async (event) => {
   document
     .querySelector('.comment-list')
     .addEventListener('click', delButtonHandler);
-  
+ 
