@@ -10,8 +10,6 @@
     <div class="col-md-6 comment-list">
       <h3>Current Comments:</h3>
       {{#each comments as |comment| }}
-      <div class="row mb-4 project">
-        <div class="col-md-5">
           <div class='card'>
             <div class="card-header">
               <h3>{{comment.title}}</h3>
@@ -23,8 +21,6 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
       {{/each}}
       {{/if}}
     </div>
@@ -46,6 +42,6 @@
       </div>
     </form>
   </div>
-
+</div>
 
   <script src="/js/blog.js"></script>
