@@ -1,3 +1,22 @@
+body {
+  background-color: #d8d7ab;
+}
+
+nav {
+  width: 10%;
+  text-align: center;
+}
+
+nav li{
+  align-self: center;
+}
+.card-body {
+  background-color: whitesmoke;
+}
+
+.card {
+  background-color: black;
+}
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
