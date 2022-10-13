@@ -1,0 +1,12 @@
+{{!-- Displays when user clicks their own blog --}}
+<div class="card text-center">
+  <h2 class="card-header">{{name}}</h2>
+  <div class="card-body">
+    <p>{{content}}</p>
+    <p class="card-footer">Posted by You on {{format_date date_created}}</p>
+
+    <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+      </div>
+
+      <script src="/js/dashboard.js"></script>

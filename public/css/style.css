@@ -1,7 +1,10 @@
 body {
-  background-color: #d8d7ab;
+  background-color: rgb(190, 204, 190);
 }
 
+header h1 {
+  text-decoration: underline;
+}
 nav {
   width: 10%;
   text-align: center;
@@ -11,11 +14,12 @@ nav li{
   align-self: center;
 }
 .card-body {
-  background-color: whitesmoke;
+  background-color:rgba(202, 255, 251, 0.842);
 }
 
 .card {
   background-color: black;
+  
 }
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
