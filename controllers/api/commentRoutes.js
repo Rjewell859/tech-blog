@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const session = require('express-session');
 const { Comment, Blog } = require('../../models');
-const { belongsTo, beforeBulkDestroy } = require('../../models/User');
 const withAuth = require('../../utils/auth');
+
+// POST route for creating a comment
 
 router.post('/', withAuth, async (req, res) => {
   console.log(req)
   try {
     const newComment = await Comment.create({
-     
+     include: [{model: Blog}],
       ...req.body,
       user_id: req.session.user_id,
       
@@ -19,6 +19,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// DELETE route for deleting a comment
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

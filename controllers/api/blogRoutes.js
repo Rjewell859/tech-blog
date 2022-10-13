@@ -1,6 +1,12 @@
+// Requiring router, model, and helper functions
+
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const {
+  Blog
+} = require('../../models');
 const withAuth = require('../../utils/auth');
+
+// Route for creating a post
 
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -15,6 +21,8 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// Route for deleting a post
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.destroy({
@@ -23,9 +31,11 @@ router.delete('/:id', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-
+// If the blog data is not found send an error response
     if (!blogData) {
-      res.status(404).json({ message: 'No blog found with this id!' });
+      res.status(404).json({
+        message: 'No blog found with this id!'
+      });
       return;
     }
 

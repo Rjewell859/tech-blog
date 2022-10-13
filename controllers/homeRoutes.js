@@ -2,9 +2,10 @@ const router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// GET route for the homepage
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Find all blogs and JOIN with user data
     const blogData = await Blog.findAll({
       include: [
         {
@@ -26,6 +27,8 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// GET route for an individual blog by id
 
 router.get('/blog/:id', async (req, res) => {
   try {
@@ -49,6 +52,8 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
+// GET route for an individual comment by id
+
 router.get('/comment/:id', async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id)
@@ -64,10 +69,10 @@ router.get('/comment/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
+// GET route for user dasshboard which uses withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
+    // Find the logged in user by primary key using the session user id
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Blog },],
@@ -84,15 +89,19 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// GET route for login page
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;
   }
-
+  // If the user is not already logged in, render the login page
   res.render('login');
 });
+
+// GET route for the signup page
 
 router.get('/signup', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -100,7 +109,6 @@ router.get('/signup', (req, res) => {
     res.redirect('/dashboard');
     return;
   }
-
   res.render('signup');
 });
 
