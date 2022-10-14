@@ -1,3 +1,5 @@
+// Function for posting a comment
+
 const newFormHandler = async (event) => {
   event.preventDefault()
     const title = document.querySelector('#comment-title').value.trim();
@@ -20,6 +22,8 @@ const newFormHandler = async (event) => {
     }
   };
 
+  // Function for deleting a comment
+
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
@@ -35,6 +39,8 @@ const newFormHandler = async (event) => {
       }
     }
   };
+  
+  // Selectors for post button and delete button
   
   document
     .querySelector('.new-comment-form')

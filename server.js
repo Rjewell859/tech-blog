@@ -1,3 +1,5 @@
+// Declaring dependencies
+
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -13,6 +15,8 @@ const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
+
+// Setting the session to include login functionality
 
 const sess = {
   secret: 'Super secret secret',

@@ -1,3 +1,5 @@
+// Handles deleting a blog when a user has clicked their own blog
+
 const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');

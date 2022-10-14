@@ -4,6 +4,8 @@ const newFormHandler = async (event) => {
   const name = document.querySelector('#blog-name').value.trim();
   const content = document.querySelector('#blog-cont').value.trim();
 
+  // Post function for creating a post
+
   if (name  && content) {
     const response = await fetch(`/api/blogs`, {
       method: 'POST',
@@ -20,6 +22,8 @@ const newFormHandler = async (event) => {
     }
   }
 };
+
+// Function that handles deleting a post
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
