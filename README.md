@@ -28,7 +28,7 @@ Start the server and make an account to proceed. Make a post from the dashboard 
 
 Deployed Site: https://salty-ravine-73412.herokuapp.com/
 
-Repository Link: https://github.com/Rjewell859/tech-blog
+Repository Link: https://tech-blog52.herokuapp.com/
 
 
 
