@@ -28,8 +28,9 @@ Comment.init(
         model: 'user',
         key: 'id',
       },
+      
     },
-  },
+},
   {
     sequelize,
     timestamps: false,

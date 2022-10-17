@@ -12,10 +12,11 @@ Blog.belongsTo(User, {
 });
 
 User.hasMany(Comment, {
-  foreignKey: 'user_id',
-})
-Comment.belongsTo(Blog, {
   foreignKey: 'comment_id',
+})
+Comment.belongsToMany(Blog, {
+  through: Blog,
+  foreignKey: 'blog_id' 
 
 })
 Blog.hasMany(Comment, {
